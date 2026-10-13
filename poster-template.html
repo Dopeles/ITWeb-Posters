@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--
+  Parameterized ITWeb social poster (1083 x 1450).
+  generate.js fills these tokens before rendering:
+    {{IMAGE_URL}}      - article/photo URL (or local path)
+    {{HEADLINE_HTML}}  - headline, with the highlight word wrapped in <span class="red">
+    {{CAPTION}}        - short supporting caption (names / image credit / dek)
+    {{LOGO_HTML}}      - <img class="logo" src="..."> OR the text wordmark fallback
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700;800;900&family=Newsreader:wght@400;600;700&family=Arimo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1083px; height: 1450px; }
+  .poster {
+    position: relative; width: 1083px; height: 1450px;
+    background: #2A2622; overflow: hidden; color: #fff;
+    font-family: 'Libre Franklin', sans-serif;
+  }
+  .photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .grad1 { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(20,17,14,0) 38%, rgba(20,17,14,.34) 72%, rgba(20,17,14,.52) 100%); }
+  .grad2 { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,17,14,0) 60%, rgba(20,17,14,.62) 100%); }
+
+  .headblock { position: absolute; right: 46px; top: 496px; width: 700px; text-align: right; }
+  h1 {
+    font-weight: 800; font-size: 66px; line-height: 1.04; letter-spacing: -.005em;
+    color: #FCFBF8; text-transform: uppercase; text-shadow: 0 2px 16px rgba(0,0,0,.55);
+  }
+  h1 .red { color: #FF4326; }
+  .rule { height: 2px; background: rgba(255,255,255,.82); margin: 30px 0 22px; }
+  .caption {
+    font-family: 'Arimo', Arial, sans-serif; font-weight: 400; font-size: 27px; line-height: 1.28;
+    text-align: left; color: #FCFBF8; text-shadow: 0 2px 12px rgba(0,0,0,.6);
+  }
+
+  .brand { position: absolute; left: 0; right: 0; bottom: 96px; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+  .brand .logo { height: 74px; width: auto; display: block; }
+  .brand .wordmark { display: flex; align-items: center; gap: 12px; }
+  .brand .dot { width: 18px; height: 18px; background: #FF4326; border-radius: 4px; }
+  .brand .wm { font-weight: 800; font-size: 46px; letter-spacing: -.02em; color: #FCFBF8; text-shadow: 0 2px 14px rgba(0,0,0,.5); }
+  .tag { font-family: 'Newsreader', serif; font-weight: 700; font-size: 28px; color: #FCFBF8; text-shadow: 0 2px 12px rgba(0,0,0,.55); }
+  .url { font-family: 'Newsreader', serif; font-weight: 700; font-size: 27px; letter-spacing: .04em; color: #FCFBF8; text-shadow: 0 2px 12px rgba(0,0,0,.55); }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <img class="photo" src="{{IMAGE_URL}}" alt="">
+    <div class="grad1"></div>
+    <div class="grad2"></div>
+
+    <div class="headblock">
+      <h1>{{HEADLINE_HTML}}</h1>
+      <div class="rule"></div>
+      <div class="caption">{{CAPTION}}</div>
+    </div>
+
+    <div class="brand">
+      {{LOGO_HTML}}
+      <div class="tag">South Africa&rsquo;s business technology media community</div>
+      <div class="url">itweb.co.za</div>
+    </div>
+  </div>
+</body>
+</html>

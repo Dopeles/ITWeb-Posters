@@ -1,0 +1,13 @@
+{
+  "timezone": "Africa/Johannesburg",
+  "feeds": [
+    { "brand": "itweb",  "url": "https://www.itweb.co.za/rss", "perRun": 1 },
+    { "brand": "africa", "url": "https://itweb.africa/rss",    "perRun": 1 }
+  ],
+  "windowHours": 24,
+  "skipCategories": ["Sponsored", "Industry press release"],
+  "outputDir": "posters",
+  "scale": 2,
+  "useClaude": true,
+  "claudeModel": "claude-sonnet-4-5"
+}
